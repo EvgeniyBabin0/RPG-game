@@ -1,10 +1,11 @@
 {
   "name": "rpg-game",
   "version": "1.0.0",
-  "description": "RPG game project with Babel and ESLint setup",
+  "description": "RPG game project with Babel, ESLint, Jest and Webpack",
   "main": "index.js",
   "scripts": {
-    "build": "babel src -d dist",
+    "build": "webpack --mode production",
+    "start": "http-server dist",
     "lint": "eslint .",
     "test": "jest --coverage"
   },
@@ -12,21 +13,25 @@
     "rpg",
     "game",
     "javascript",
-    "babel",
+    "webpack",
     "eslint"
   ],
   "author": "Evgeniy Babin",
   "license": "ISC",
-  "type": "commonjs",
   "devDependencies": {
     "@babel/cli": "^7.28.6",
     "@babel/core": "^7.29.0",
     "@babel/preset-env": "^7.29.5",
-    "babel-jest": "^30.4.1",
+    "css-loader": "^7.1.2",
     "eslint": "^8.57.0",
     "eslint-config-airbnb-base": "^15.0.0",
     "eslint-plugin-import": "^2.32.0",
-    "jest": "^30.4.2"
+    "html-webpack-plugin": "^5.6.3",
+    "http-server": "^14.1.1",
+    "jest": "^29.7.0",
+    "mini-css-extract-plugin": "^2.9.4",
+    "webpack": "^5.107.0",
+    "webpack-cli": "^6.0.1"
   },
   "dependencies": {
     "core-js": "^3.49.0"
