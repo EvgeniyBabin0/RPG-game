@@ -1,19 +1,18 @@
-import Archer from './Archer';
-import Warrior from './Warrior';
-import Mage from './Mage';
-import Dwart from './Dwart';
-import Crossbowman from './Crossbowman';
-import Demourge from './Demourge';
+export default function play(players) {
+  let round = 1;
 
-export default function play() {
-  const characters = [
-    new Archer(),
-    new Warrior(),
-    new Mage(),
-    new Dwart(),
-    new Crossbowman(),
-    new Demourge(),
-  ];
+  while (players.filter((player) => !player.isDead()).length > 1) {
+    // eslint-disable-next-line no-console
+    console.log(`Раунд ${round}`);
 
-  return characters;
+    players.forEach((player) => {
+      if (!player.isDead()) {
+        player.turn(players);
+      }
+    });
+
+    round += 1;
+  }
+
+  return players.find((player) => !player.isDead()) || null;
 }
