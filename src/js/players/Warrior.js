@@ -12,7 +12,14 @@ export default class Warrior extends Player {
 
   takeDamage(damage) {
     if (this.life < 60 && this.getLuck() > 0.8 && this.magic > 0) {
-      this.magic = Math.max(this.magic - damage, 0);
+      if (this.magic >= damage) {
+        this.magic -= damage;
+        return;
+      }
+
+      const restDamage = damage - this.magic;
+      this.magic = 0;
+      super.takeDamage(restDamage);
       return;
     }
 

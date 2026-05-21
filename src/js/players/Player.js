@@ -110,8 +110,8 @@ export default class Player {
       return;
     }
 
-    const damage = this.getDamage(distance);
     this.weapon.takeDamage(10 * this.getLuck());
+    const damage = this.getDamage(distance);
     this.checkWeapon();
 
     if (this.position === enemy.position) {
